@@ -84,6 +84,10 @@ class MenuController
     print "Email: "
     email = gets.chomp
 
+    address_book.add_entry(name, phone, email)
+    system "clear"
+    puts "New entry created"
+
   end
 
   def search_entries
