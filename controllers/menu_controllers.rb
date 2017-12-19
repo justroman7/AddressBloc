@@ -14,7 +14,8 @@ class MenuController
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
     puts "5 - Veiw Entry"
-    puts "6 - Exit"
+    puts "6 - Delete All Entries"
+    puts "7 - Exit"
     print "Enter your selection: "
 
     selection = gets.to_i
@@ -40,6 +41,11 @@ class MenuController
       entry_n_submenu
       main_menu
     when 6
+      system "clear"
+      @address_book.delete_all
+      puts "All entries have been deleted"
+      main_menu
+    when 7
       puts "Good-bye!"
       exit(0)
     else
@@ -143,6 +149,7 @@ class MenuController
       puts "#{file_name} is not a vaild CSV file, please enter the name of a valid CSV file"
       read_csv
     end
+  end
 
     def delete_entry(entry)
       address_book.entries.delete(entry)
